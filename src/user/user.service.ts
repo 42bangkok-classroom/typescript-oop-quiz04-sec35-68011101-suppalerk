@@ -4,6 +4,6 @@ export class UserService {
   }
 
   getUsers(): string[] {
-    return [];
+    return this.User;
   }
 }
