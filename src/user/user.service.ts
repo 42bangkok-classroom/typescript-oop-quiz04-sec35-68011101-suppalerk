@@ -1,9 +1,15 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
 export class UserService {
-  constructor(private readonly User: string) {
-    User : "[]"
+    User : ""
+
+
+  test(): string[] {
+    return [];
   }
 
-  test(): string {
-    return this.User;
+  findAll() : string[] {
+    return [];
   }
 }
