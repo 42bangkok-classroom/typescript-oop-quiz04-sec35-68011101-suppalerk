@@ -1,9 +1,9 @@
 export class UserService {
-  constructor(private readonly User: string[]) {
-    User : ""
+  constructor(private readonly User: string) {
+    User : "[]"
   }
 
-  getUsers(): string[] {
+  test(): string {
     return this.User;
   }
 }
