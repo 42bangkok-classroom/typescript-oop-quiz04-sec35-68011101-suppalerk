@@ -1,9 +1,7 @@
-class UserService {
-        message: string = "Cannot GET /users/test"
-    error: string = "Not Found"
-    statusCode: number = 404
+export class UserService {
+  constructor(private readonly User: string[]) {}
 
-      get user(){
-    return this.user;
+  getUsers(): string[] {
+    return [];
   }
 }
