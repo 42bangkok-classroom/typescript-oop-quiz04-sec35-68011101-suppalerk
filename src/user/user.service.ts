@@ -1,5 +1,7 @@
 export class UserService {
-  constructor(private readonly User: string[]) {}
+  constructor(private readonly User: string[]) {
+    User : []
+  }
 
   getUsers(): string[] {
     return [];
