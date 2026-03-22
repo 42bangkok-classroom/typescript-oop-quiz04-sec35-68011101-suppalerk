@@ -10,7 +10,7 @@ export interface User {
 
 @Injectable()
 export class UserService {
-  test():User[]{
-    return[];
+  test(): User[] {
+    return [];
   }
 }
