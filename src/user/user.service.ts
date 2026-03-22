@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IUser } from './user.interface';
+// import { IUser } from './user.interface';
 export interface User {
   id: string;
   firstName: string;
