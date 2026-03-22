@@ -1,15 +1,17 @@
 import { Injectable } from '@nestjs/common';
 
-@Injectable()
-export class UserService {
+export interface User {
     id: string;
     firstName: string;
     lastName: string;
     email: string;
     username: string;
-  test(): {
+}
+
+@Injectable()
+export class UserService {
+  test():  User[]{
+    return[]
   }
-  {
-  return [];
-  }
+  
 }
