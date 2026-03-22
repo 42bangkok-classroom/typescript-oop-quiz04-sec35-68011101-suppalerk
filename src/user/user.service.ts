@@ -4,12 +4,7 @@ import { Injectable } from '@nestjs/common';
 export class UserService {
 
   test(): {
-    id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    username: string;
-  }[] {
+  } {
     return [];
   }
 }
