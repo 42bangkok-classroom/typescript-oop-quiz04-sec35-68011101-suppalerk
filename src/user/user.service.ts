@@ -13,9 +13,7 @@ export class UserService {
   test(): User[] {
     return [];
   }
-  findAll() {
-    return UserService.length
-
-  }
-
+  // findAll() {
+  //   return UserService.length
+  // }
 }
