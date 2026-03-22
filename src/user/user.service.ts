@@ -2,14 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class UserService {
-    User : ""
 
-
-  test(): string[] {
-    return [];
-  }
-
-  findAll() : string[] {
+  test(): {id : string , firstname : string , lastname : string , email : string , username : string}[] {
     return [];
   }
 }
