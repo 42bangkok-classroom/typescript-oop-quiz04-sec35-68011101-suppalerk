@@ -13,8 +13,8 @@ export class UserController {
   }
 
   @Get('user')
-  async findAll(): Promise<IUser[]> {
-    const users: IUser[] = await this.userService.findAll();
+  findAll(): IUser[] {
+    const users: IUser[] = this.userService.findAll();
     return users;
   }
 }
