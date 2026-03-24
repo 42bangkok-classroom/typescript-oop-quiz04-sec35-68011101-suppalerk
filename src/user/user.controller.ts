@@ -12,7 +12,7 @@ export class UserController {
     return this.userService.test();
   }
 
-  @Get('user')
+  @Get('/user')
   findAll(): IUser[] {
     const users: IUser[] = this.userService.findAll();
     return users;
