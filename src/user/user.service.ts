@@ -28,7 +28,7 @@ export class UserService {
 
   findOne(id: string, fields?: string[]): Partial<IUser> {
     const users = this.findAll();
-    const user = users.find((u: IUser) => u.id);
+    const user = users.find((u: IUser) => u.id === id);
 
     if (!user) {
       throw new NotFoundException('User not found');
