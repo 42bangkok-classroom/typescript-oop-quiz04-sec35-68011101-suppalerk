@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { IUser } from './user.interface';
 import * as fs from 'fs';
 import * as path from 'path';
+import { CreateUserDto } from './dto/create-user.dto';
 
 export interface User {
   id: string;
@@ -45,5 +46,25 @@ export class UserService {
       return filteredUser;
     }
     return user;
+  }
+  create(dto: CreateUserDto): IUser {
+    const users = this.findAll();
+
+    const maxId = users.reduce((max: number, currentUser: IUser) => {
+      const currentId = parseInt(currentUser.id, 10);
+      return currentId > max ? currentId : max;
+    }, 0);
+
+    const newId = (maxId + 1).toString();
+
+    const newUser: IUser = {
+      id: newId,
+      ...dto,
+    };
+    users.push(newUser);
+
+    const filePath = path.join(process.cwd(), 'data', 'users.json');
+    fs.writeFileSync(filePath, JSON.stringify(users, null, 2), 'utf-8');
+    return newUser;
   }
 }
