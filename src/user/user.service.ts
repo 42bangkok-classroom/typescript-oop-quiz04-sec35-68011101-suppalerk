@@ -27,24 +27,24 @@ export class UserService {
     return users;
   }
 
-  findOne(id : string , fields? : string[]):Partial<IUser>{
+  findOne(id: string, fields?: string[]): Partial<IUser> {
     const users = this.findAll();
-    const user = users.find((u:IUser)=>u.id)
+    const user = users.find((u: IUser) => u.id);
 
     if (!user) {
-      throw new NotFoundException('User not found')
+      throw new NotFoundException('User not found');
     }
-    if (fields && fields.length > 0){
-      const filteredUser : Partial<IUser> ={}
+    if (fields && fields.length > 0) {
+      const filteredUser: Partial<IUser> = {};
 
-      fields.forEach((fields: string) =>{
-        if (fields in user){
+      fields.forEach((fields: string) => {
+        if (fields in user) {
           const key = fields as keyof IUser;
-          filteredUser[key] = user[key]
+          filteredUser[key] = user[key];
         }
-      })
-      return filteredUser
+      });
+      return filteredUser;
     }
-    return user
+    return user;
   }
 }
