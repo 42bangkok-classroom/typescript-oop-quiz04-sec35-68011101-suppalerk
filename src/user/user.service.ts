@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { IUser } from './user.interface';
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 
 export interface User {
   id: string;
@@ -24,5 +25,26 @@ export class UserService {
 
     const users: IUser[] = JSON.parse(fileData) as IUser[];
     return users;
+  }
+
+  findOne(id : string , fields? : string[]):Partial<IUser>{
+    const users = this.findAll();
+    const user = users.find((u:IUser)=>u.id)
+
+    if (!user) {
+      throw new NotFoundException('User not found')
+    }
+    if (fields && fields.length > 0){
+      const filteredUser : Partial<IUser> ={}
+
+      fields.forEach((fields: string) =>{
+        if (fields in user){
+          const key = fields as keyof IUser;
+          filteredUser[key] = user[key]
+        }
+      })
+      return filteredUser
+    }
+    return user
   }
 }
